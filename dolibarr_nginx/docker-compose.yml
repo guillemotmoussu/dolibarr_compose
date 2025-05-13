@@ -48,8 +48,8 @@ services:
         volumes:
             - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
             - ./certs:/etc/nginx/ssl
-            - ../../../module/dolibarr/htdocs:/var/www/htdocs:rw
-            - ../../../module/dolibarr/scripts:/var/www/scripts:rw
+            - ../dolibarr/htdocs:/var/www/htdocs:rw
+            - ../dolibarr/scripts:/var/www/scripts:rw
             - ./nginx/log/:/var/log/nginx/
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
@@ -67,11 +67,11 @@ services:
         build: .
         container_name: dolstd_dolibarr_web
         volumes:
-            - ../../../module/dolibarr/htdocs:/var/www/htdocs:rw
-            - ../../../module/dolibarr/scripts:/var/www/scripts:rw
-            - ../../../module/dolibarr/documents:/var/documents:rw
-            - ../../../module/dolibarr/build:/var/www/build:rw
-            - ../../../module/dolibarr/phpstan_custom.neon:/var/www/phpstan_custom.neon:r
+            - ../dolibarr/htdocs:/var/www/htdocs:rw
+            - ../dolibarr/scripts:/var/www/scripts:rw
+            - ../documents:/var/documents:rw
+            - ../build:/var/www/build:rw
+            - ../phpstan_custom.neon:/var/www/phpstan_custom.neon:r
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
         # use for Xdebug local with IDE
